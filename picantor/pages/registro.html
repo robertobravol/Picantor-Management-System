@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro de cliente – Picantor Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/estilos.css" rel="stylesheet">
+    <link rel="icon" href="../img/restaurant.png" type="image/x-icon"> 
+
+</head>
+<body data-pagina="registro" data-roles="publico">
+  <div id="navbar"></div>
+  <main class="container my-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="tabla-card p-4">
+          <h1 class="h4 mb-3">Registro de cliente</h1>
+          <div class="alert alert-warning small">Prototipo de demostración: no uses una contraseña real. Los datos se guardan solo en este navegador.</div>
+          <form id="form-registro" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label" for="r-username">Usuario</label>
+                <input class="form-control" id="r-username" required maxlength="40" autocomplete="off">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="r-email">Correo electrónico</label>
+                <input class="form-control" id="r-email" type="email" required maxlength="120">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="r-password">Contraseña</label>
+                <input class="form-control" id="r-password" type="password" required minlength="6" autocomplete="off">
+                <div class="form-text">Mínimo 6 caracteres.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="r-nombre">Nombre o razón social</label>
+                <input class="form-control" id="r-nombre" required maxlength="150">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label" for="r-tipo">Tipo de identificación</label>
+                <select class="form-select" id="r-tipo" required></select>
+              </div>
+              <div class="col-md-8">
+                <label class="form-label" for="r-identificacion">Identificación</label>
+                <input class="form-control" id="r-identificacion" required maxlength="20">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="r-telefono">Teléfono</label>
+                <input class="form-control" id="r-telefono" maxlength="20">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="r-direccion">Dirección</label>
+                <input class="form-control" id="r-direccion" maxlength="200">
+              </div>
+            </div>
+            <div class="mt-4 d-flex gap-2">
+              <button class="btn btn-picantor" type="submit">Crear cuenta</button>
+              <a class="btn btn-outline-secondary" href="../index.html">Cancelar</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer id="pie"></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/datos.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/logica.js"></script>
+  <script src="../js/paginas/acceso.js"></script>
+</body>
+</html>

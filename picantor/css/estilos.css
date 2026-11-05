@@ -1,0 +1,105 @@
+/* Estilos propios de Picantor Management System (prototipo). Bootstrap se carga aparte. */
+:root {
+  --picantor: #c0392b;
+  --picantor-oscuro: #8e2a20;
+  --fondo: #f7f4f1;
+}
+
+body {
+  background: var(--fondo);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.navbar-picantor {
+  background: var(--picantor-oscuro);
+}
+
+.btn-picantor {
+  background: var(--picantor);
+  border-color: var(--picantor);
+  color: #fff;
+}
+
+.btn-picantor:hover,
+.btn-picantor:focus {
+  background: var(--picantor-oscuro);
+  border-color: var(--picantor-oscuro);
+  color: #fff;
+}
+
+.text-picantor {
+  color: var(--picantor);
+}
+
+.badge-demo {
+  background: #f1c40f;
+  color: #2c2c2c;
+  font-size: 0.7rem;
+  vertical-align: middle;
+}
+
+.pie-demo {
+  flex-shrink: 0;
+  background: #2b2b2b;
+  color: #d7d7d7;
+  font-size: 0.82rem;
+}
+
+.pie-demo a {
+  color: #f5b7b1;
+}
+
+.tabla-card {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.table th {
+  white-space: nowrap;
+}
+
+.cero {
+  color: #b02a37;
+  font-weight: 600;
+}
+
+.tarjeta-modulo {
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tarjeta-modulo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  color: inherit;
+}
+
+.dato-lectura dt {
+  font-weight: 600;
+  color: #555;
+}
+
+.dato-lectura dd {
+  margin-bottom: 0.6rem;
+}
+
+.documento-venta {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.clave-acceso {
+  word-break: break-all;
+  font-family: monospace;
+  font-size: 0.85rem;
+}

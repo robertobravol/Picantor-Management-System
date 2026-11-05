@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lotes – Picantor Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/estilos.css" rel="stylesheet">
+    <link rel="icon" href="../img/restaurant.png" type="image/x-icon"> 
+
+</head>
+<body data-pagina="lotes" data-roles="personal">
+  <div id="navbar"></div>
+  <main class="container my-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+      <h1 class="h3 mb-0">Lotes de producción</h1>
+      <button class="btn btn-picantor" id="btn-nuevo" type="button">Nuevo lote</button>
+    </div>
+    <div class="row g-2 mb-3">
+      <div class="col-md-6"><input id="buscar" class="form-control" type="search" placeholder="Buscar por código de lote"></div>
+
+    </div>
+    <div class="table-responsive tabla-card">
+      <table class="table table-hover align-middle mb-0">
+        <thead><tr><th>Código</th><th>Fecha de elaboración</th><th>Fecha de caducidad</th><th>Registrado por</th><th></th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <form class="modal-content" id="form" novalidate>
+          <div class="modal-header"><h2 class="modal-title h5">Registro de lote</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+          <div class="modal-body">
+            <div class="row g-3 mb-3">
+              <div class="col-md-4"><label class="form-label" for="l-codigo">Código del lote</label><input class="form-control" id="l-codigo" required maxlength="30"></div>
+              <div class="col-md-4"><label class="form-label" for="l-elab">Fecha de elaboración</label><input class="form-control" type="date" id="l-elab" required></div>
+              <div class="col-md-4"><label class="form-label" for="l-cad">Fecha de caducidad</label><input class="form-control" type="date" id="l-cad" required></div>
+            </div>
+            <div class="row g-4">
+              <div class="col-lg-6">
+                <h3 class="h6">Producción (unidades por presentación)</h3>
+                <table class="table table-sm align-middle"><thead><tr><th>Presentación</th><th style="width:130px">Unidades</th><th></th></tr></thead><tbody id="filas-prod"></tbody></table>
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="btn-add-prod">Agregar presentación</button>
+              </div>
+              <div class="col-lg-6">
+                <h3 class="h6">Insumos consumidos</h3>
+                <table class="table table-sm align-middle"><thead><tr><th>Insumo</th><th style="width:130px">Cantidad</th><th></th></tr></thead><tbody id="filas-cons"></tbody></table>
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="btn-add-cons">Agregar insumo</button>
+              </div>
+            </div>
+            <p class="small text-muted mt-3 mb-0">Al guardar se descuentan los insumos y se suma el producto terminado. La caducidad debe ser posterior a la elaboración.</p>
+          </div>
+          <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button><button type="submit" class="btn btn-picantor">Guardar lote</button></div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <footer id="pie"></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/datos.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/logica.js"></script>
+  <script src="../js/paginas/produccion.js"></script>
+</body>
+</html>

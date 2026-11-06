@@ -32,6 +32,7 @@ const Auth = (function () {
     ],
     personal: [
       { t: 'Inicio', h: 'inicio-personal.html' },
+      { t: 'Dashboard', h: 'dashboard.html' },
       { t: 'Abastecimiento', sub: [
         { t: 'Proveedores', h: 'proveedores.html' },
         { t: 'Insumos', h: 'insumos.html' },

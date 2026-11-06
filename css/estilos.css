@@ -103,3 +103,146 @@ main {
   font-family: monospace;
   font-size: 0.85rem;
 }
+
+/* ---------- Dashboard ---------- */
+/* Colores de los gráficos definidos como variables por rol (una sola serie: azul). */
+.viz-root {
+  color-scheme: light;
+  --surface-1: #fcfcfb;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #898781;
+  --series-1: #2a78d6;
+  --series-1-hover: #1c5cab;
+  --grid: #e1e0d9;
+  --baseline: #c3c2b7;
+  --border-hair: rgba(11, 11, 11, 0.1);
+  --critico: #d03b3b;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.viz-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border-hair);
+  border-radius: 0.6rem;
+  padding: 1rem 1.1rem;
+  color: var(--text-primary);
+  height: 100%;
+}
+
+.viz-card h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.viz-sub {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  margin: 0.1rem 0 0.8rem;
+}
+
+.viz-titulo-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.btn-tabla {
+  font-size: 0.78rem;
+  padding: 0.1rem 0.5rem;
+  white-space: nowrap;
+}
+
+.viz-vacio {
+  color: var(--text-secondary);
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.viz-cargando { opacity: 0.55; transition: opacity 0.12s; }
+
+/* Cifra principal (una sola por vista) y fichas de indicadores */
+.hero-cifra {
+  font-size: 3.25rem;
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.ficha-etiqueta {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.ficha-valor {
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.ficha-detalle {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+
+a.ficha-enlace { text-decoration: none; color: inherit; }
+a.ficha-enlace:hover .viz-card { border-color: var(--series-1); }
+
+/* Columnas (SVG) */
+.viz-svg { width: 100%; height: auto; display: block; }
+.viz-svg .eje text { fill: var(--text-muted); font-size: 11px; }
+.viz-svg .cuadricula { stroke: var(--grid); stroke-width: 1; }
+.viz-svg .base { stroke: var(--baseline); stroke-width: 1; }
+.viz-svg .valor-max { fill: var(--text-primary); font-size: 11px; font-weight: 600; text-anchor: middle; }
+.viz-svg .col { outline: none; cursor: default; }
+.viz-svg .col .barra { fill: var(--series-1); }
+.viz-svg .col:hover .barra, .viz-svg .col:focus .barra { fill: var(--series-1-hover); }
+.viz-svg .col:focus .zona { stroke: var(--series-1); stroke-width: 1; fill: rgba(42, 120, 214, 0.06); }
+.viz-svg .zona { fill: transparent; }
+
+/* Barras horizontales (HTML) */
+.hbar { display: grid; grid-template-columns: minmax(7rem, 38%) 1fr; align-items: center; column-gap: 0.75rem; row-gap: 0.55rem; }
+.hbar-etiqueta { color: var(--text-secondary); font-size: 0.85rem; overflow-wrap: anywhere; }
+.hbar-pista { position: relative; height: 24px; border-left: 1px solid var(--baseline); }
+.hbar-relleno {
+  position: absolute; left: 0; top: 5px; height: 14px;
+  width: calc((100% - 3.5rem) * var(--r));
+  background: var(--series-1);
+  border-radius: 0 4px 4px 0;
+  min-width: 2px;
+}
+.hbar-valor {
+  position: absolute; top: 2px;
+  left: calc((100% - 3.5rem) * var(--r) + 0.5rem);
+  font-size: 0.85rem; font-weight: 600; color: var(--text-primary);
+}
+.hbar-fila { display: contents; outline: none; }
+.hbar-fila:hover .hbar-relleno, .hbar-fila:focus .hbar-relleno { background: var(--series-1-hover); }
+.hbar-fila:focus .hbar-etiqueta { text-decoration: underline; }
+
+/* Tablas de apoyo y estados con icono + texto (el color nunca va solo) */
+.viz-tabla { font-size: 0.86rem; }
+.viz-tabla th { color: var(--text-secondary); font-weight: 600; }
+.estado-critico { color: var(--critico); font-weight: 600; white-space: nowrap; }
+.estado-critico svg { vertical-align: -2px; margin-right: 0.2rem; }
+
+/* Tooltip (un solo elemento, seguido por el puntero o el foco) */
+#viz-tooltip {
+  position: fixed; z-index: 2000; pointer-events: none;
+  background: #fff; color: #0b0b0b; border: 1px solid rgba(11, 11, 11, 0.18);
+  border-radius: 0.4rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 0.35rem 0.6rem; font-size: 0.8rem; display: none; max-width: 16rem;
+}
+#viz-tooltip strong { display: block; font-size: 0.95rem; }
+#viz-tooltip span { color: #52514e; }
+
+@media print {
+  #navbar, #pie, .no-imprimir, .toast-container, #viz-tooltip { display: none !important; }
+  body { background: #fff; }
+  main { margin: 0 !important; padding: 0 !important; max-width: none !important; }
+  .tabla-card { box-shadow: none; }
+  .table-responsive { overflow: visible !important; }
+}

@@ -179,7 +179,7 @@ const UI = (function () {
       ? '<span class="navbar-text me-3 small">' + h(s.username) + ' <span class="badge text-bg-light">' + (s.rol === 'personal' ? 'Personal' : 'Cliente') + '</span></span>' +
         '<button class="btn btn-outline-light btn-sm" id="btn-salir" type="button">Cerrar sesión</button>'
       : '';
-    cont.innerHTML = '<nav class="navbar navbar-expand-lg navbar-dark navbar-picantor"><div class="container">' +
+    cont.innerHTML = '<nav class="navbar navbar-expand-xl navbar-dark navbar-picantor"><div class="container">' +
       '<a class="navbar-brand" href="' + Auth.inicio(rol) + '">Picantor <span class="badge badge-demo">DEMO</span></a>' +
       '<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-label="Menú"><span class="navbar-toggler-icon"></span></button>' +
       '<div class="collapse navbar-collapse" id="menu-principal"><ul class="navbar-nav me-auto">' + items + '</ul>' + usuario + '</div></div></nav>';

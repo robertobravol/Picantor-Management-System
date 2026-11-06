@@ -22,6 +22,7 @@ picantor/
 │   ├── inicio-cliente.html     S03 Inicio del cliente
 │   ├── inicio-personal.html    S04 Inicio del personal
 │   ├── seguridad.html          S05 Cuentas del personal y actividad
+│   ├── dashboard.html          Dashboard (indicadores y gráficos, con filtro de período)
 │   ├── proveedores.html        S10/S11
 │   ├── insumos.html            S12/S13
 │   ├── compras.html            S14/S15/S16 (compras, detalle y recepción)
@@ -60,6 +61,7 @@ picantor/
         ├── produccion.js       M04
         ├── pedidos.js          M05
         ├── pagos.js            M06
+        ├── dashboard.js        Dashboard
         └── distribucion.js     M07
 ```
 
@@ -102,6 +104,13 @@ guárdalos en `vendor/bootstrap/` y cambia las dos rutas `https://cdn.jsdelivr.n
 
 Los datos se guardan por navegador y por dirección (por ejemplo, `localhost:8000` y `localhost:5500` no comparten datos).
 
+## Dashboard (menú «Dashboard», solo personal)
+
+`dashboard.html` muestra, con filtro de período (todo, mes actual, últimos 30 o 7 días, o rango de fechas): ventas cobradas, pedidos del período,
+pedidos por atender, pendientes de pago y ticket promedio; gráficos de ventas por día (por mes si el rango supera 92 días), pedidos por estado
+y unidades cobradas por presentación (cada gráfico tiene «Ver tabla»); y la situación actual de existencias y próximas caducidades.
+Definiciones: *venta cobrada* = pedido con al menos un pago EXITOSO; las ventas por día usan la fecha del pedido.
+
 ## Reglas que aplica el prototipo
 
 - Los pedidos se crean en `PENDIENTE_PAGO` y se confirman (`PAGADO`) con un pago exitoso; solo entonces se descuenta el producto terminado del inventario.
@@ -117,6 +126,6 @@ Los datos se guardan por navegador y por dirección (por ejemplo, `localhost:800
 
 ## Fuera del alcance (según el cliente)
 
-Precios especiales, seguimiento de ubicación de la entrega, funcionamiento sin conexión, reportes e indicadores,
+Precios especiales, seguimiento de ubicación de la entrega, funcionamiento sin conexión, reportes e indicadores distintos del dashboard,
 venta por terceros y migración de datos. Los estados del pedido, los tipos de identificación y las unidades de medida
 son valores **sugeridos** que el cliente aún debe confirmar.
